@@ -7,5 +7,5 @@ Based on work done for Phase 2 Engines (iOrchestra, UPSU, Datalab, FLUX, Artory)
 
 Note: This is will be expanded over time
 
-[ ] qualia.accounts (login and registration)
-[ ] qualia.tools (addtional useful functions, decorators and context processors)
+- [ ] qualia.accounts (login and registration)
+- [ ] qualia.tools (addtional useful functions, decorators and context processors)
