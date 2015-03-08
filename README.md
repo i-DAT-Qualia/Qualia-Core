@@ -9,3 +9,9 @@ Note: This is will be expanded over time
 
 - [ ] qualia.accounts (login and registration)
 - [ ] qualia.tools (addtional useful functions, decorators and context processors)
+- [ ] qualia.deployment
+- [ ] qualia.dashboard
+- [ ] qualia.content
+- [ ] qualia.crowd
+- [ ] qualia.cards
+- [ ] qualia.push
