@@ -14,6 +14,9 @@ Based on work done for Phase 2 Engines (iOrchestra, UPSU, Datalab, FLUX, Artory,
 ### Starting up
 
 From the project directory:
-    vagrant box add wheezy http://boxes.nickcharlton.net.s3-website-us-west-2.amazonaws.com/wheezy64-ansible-virtualbox.box
-    vagrant init wheezy
-    vagrant up
+
+```shell
+vagrant box add wheezy http://boxes.nickcharlton.net.s3-website-us-west-2.amazonaws.com/wheezy64-ansible-virtualbox.box
+vagrant init wheezy
+vagrant up
+```
