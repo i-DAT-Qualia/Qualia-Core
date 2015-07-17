@@ -1,0 +1,97 @@
+- name: Install packages
+  sudo: yes
+  apt: pkg={{ item }} state=installed update_cache=yes
+  with_items:
+      # Database
+      - postgresql
+      - libpq-dev # Required for Ansible to interact with postgres
+      - python-psycopg2 # Required for Ansible to interact with postgres
+      - postgresql-server-dev-all
+      - postgresql-contrib
+
+      # Python Dev
+      - python-dev
+      - python-setuptools
+      - python-virtualenv
+
+      # geo
+      - binutils
+      - libproj-dev
+      - gdal-bin
+      - libgeoip1
+      - python-gdal
+      - libgdal-dev
+
+      # caching
+      - memcached
+
+      # others
+      - vim
+      - build-essential
+
+      # Pillow
+      - libtiff4-dev
+      - libjpeg8-dev
+      - zlib1g-dev
+      - libfreetype6-dev
+      - liblcms2-dev
+      - libwebp-dev
+      - tcl8.5-dev
+      - tk8.5-dev
+      - python-tk
+
+      # Datd
+      - libxslt-dev
+      
+
+- name: Enable Build
+  sudo: yes
+  shell: chmod 755 /vagrant/provision/setup/files/build_postgis.sh
+
+- name: Build Postgis
+  sudo: yes
+  shell: /vagrant/provision/setup/files/build_postgis.sh
+
+- name: Allow password authentication for local socket users
+  sudo: yes
+  copy: src=pg_hba.conf dest=/etc/postgresql/9.1/main/pg_hba.conf force=yes
+  notify:
+      - Restart Postgres
+
+- name: Allow Postgres in Sudoer's file (DEV ONLY)
+  sudo: yes
+  copy: src=vagrant dest=/etc/sudoers.d/vagrant force=yes
+
+- name: Create Database
+  sudo: yes
+  sudo_user: postgres
+  postgresql_db: name={{ db_name }}
+
+- name: Create User
+  sudo: yes
+  sudo_user: postgres
+  postgresql_user: name={{ db_user }} password={{ db_password }} state=present role_attr_flags=NOSUPERUSER,CREATEDB
+
+- name: Provide user with DB permissions
+  sudo: yes
+  sudo_user: postgres
+  postgresql_user: user={{ db_user }} db={{ db_name }} priv=ALL
+
+- name: enable postgis extension
+  sudo: yes
+  sudo_user: postgres
+  command: psql -d {{ db_name }} -c "CREATE EXTENSION postgis;"
+
+- name: enable postgis topology extension
+  sudo: yes
+  sudo_user: postgres
+  command: psql -d {{ db_name }} -c "CREATE EXTENSION postgis_topology;"
+
+- name: enable hstore extension
+  sudo: yes
+  sudo_user: postgres
+  command: psql -d {{ db_name }} -c "CREATE EXTENSION hstore;"
+
+- name: Setup Virtualenv
+  sudo: yes
+  pip: requirements={{ virtualenv_path }}/requirements.txt

@@ -1,0 +1,4 @@
+db_name: django_app
+db_user: django
+db_password: d15Bb5zo67174yi
+virtualenv_path: /var/www/app
