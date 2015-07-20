@@ -19,5 +19,3 @@ from accounts.models import *
 #admin.site.unregister(User)
 #admin.site.register(User, UserAdmin)
 admin.site.register(QualiaUser)
-admin.site.register(Points)
-admin.site.register(Profile)
