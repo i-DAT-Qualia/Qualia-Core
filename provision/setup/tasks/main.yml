@@ -42,7 +42,7 @@
 
       # Datd
       - libxslt-dev
-      
+
 
 - name: Enable Build
   sudo: yes
@@ -92,6 +92,10 @@
   sudo_user: postgres
   command: psql -d {{ db_name }} -c "CREATE EXTENSION hstore;"
 
-- name: Setup Virtualenv
+- name: Setup Base Virtualenv
   sudo: yes
-  pip: requirements={{ virtualenv_path }}/requirements.txt
+  pip: requirements={{ virtualenv_path }}/requirements/base.txt
+
+- name: Setup Local Virtualenv
+  sudo: yes
+  pip: requirements={{ virtualenv_path }}/requirements/local.txt
