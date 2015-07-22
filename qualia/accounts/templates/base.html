@@ -1,0 +1,38 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    body{font-family:Arial,Helvetica,sans-serif;font-size:62.5%;margin:0;padding:0;-webkit-text-size-adjust:100%}h1,h2,h3{font-family:Montserrat,sans-serif;margin-top:0;font-weight:400}img{border-style:none;display:block;width:100%;max-width:100%;height:auto;margin-bottom:15px}h2{font-size:1.8em;line-height:1.2em;margin-bottom:1em}@media (min-width:768px){h2{font-size:2.6em}}a,p{font-size:1.4em;line-height:1.1em}@media (min-width:768px){a,p{font-size:2.3em}}label{display:block;margin-bottom:10px}a,div,form,header,img,input,p{position:relative;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}header{text-align:center;padding:40px 0;border-top:10px solid #333;width:100%;top:0;z-index:100;background:#fff}@media (max-width:767px){header{border-top:5px solid #333;padding:20px}}#print-logo{display:none}#logo{margin-bottom:0}#logo a{background-image:url({{STATIC_URL}}{{LOGO}});background-repeat:no-repeat;display:inline-block;overflow:hidden;text-indent:-600px;-moz-background-size:100% auto;-o-background-size:100% auto;-webkit-background-size:100% auto;background-size:100% auto;height:176px;width:116px}@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (min-moz-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){#logo a{background-image:url(http://www.artory.co.uk/images/icons/retina/logo.png)}}@media only screen and (max-width:767px){#logo a{width:58px;height:88px}}input{border:0;background:#e1e2e5;-webkit-appearance:none;-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;display:block;width:100%;padding:10px!important;color:#999}@media (min-width:768px){input{font-size:1em;padding:15px!important}}input::-webkit-input-placeholder{color:#999}input::-moz-placeholder{color:#999}input::-ms-input-placeholder{color:#999}.button{background-color:#3ba5bf;line-height:1em;font-size:1.3em;margin:0;font-weight:700;cursor:pointer;color:#fff}@media (min-width:768px){.button{font-size:2em!important}}.button:hover{color:#fff;background:#3293ab!important;text-decoration:none}#content{max-width:600px;margin:0 auto;padding:0 20px}
+    </style>
+</head>
+
+<body>
+<header>
+<h1 id="logo"><a href="/">{{APP_NAME}}</a></h1>
+<img class="logo" src="{{STATIC_URL}}{{LOGO}}" width="200" height="200" alt="{{APP_NAME}}" id="print-logo" />
+</header>
+<main>
+    <div class="container">
+    <div id="content">
+
+    {% block content %}{% endblock %}
+
+    </div>
+    </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script src="{{STATIC_URL}}bootstrap/js/bootstrap.min.js"></script>
+
+    {% block pageScripts %}{% endblock %}
+
+
+</body>
+
+</html>
