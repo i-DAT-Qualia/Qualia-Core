@@ -21,6 +21,6 @@ vagrant ssh
 to connect to the box. To start the development server:
 ```shell
 cd /var/www/qualia
-python manage.py --settings=config.settings.local runserver 0.0.0.0:8000
+python manage.py runserver 0.0.0.0:8000
 ```
 The engine will be running on your machine. You can load the homepage in a web browser: http://127.0.0.1:8000
