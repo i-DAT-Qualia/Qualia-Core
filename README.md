@@ -15,11 +15,9 @@ Based on work done for Phase 2 Engines (iOrchestra, UPSU, Datalab, FLUX, Artory,
 
 From the project directory:
 ```shell
-vagrant box add wheezy http://boxes.nickcharlton.net.s3-website-us-west-2.amazonaws.com/wheezy64-ansible-virtualbox.box
-vagrant init wheezy
 vagrant up
 ```
-This will build the development environment and install the required packages. Once finished, you can use:
+This will download the relevant Vagrant box, create the development environment and install the required packages. Once finished, you can use:
 ```shell
 vagrant ssh
 ```
