@@ -4,7 +4,7 @@ from django.views.generic import RedirectView
 from django.conf import settings
 
 urlpatterns = [
-    # url(r'^$', 'dashboard.views.front_page'),
+    url(r'^$', 'front.views.front'),
     url(r'^admin/', include(admin.site.urls)),
     # url(r'api/', include('config.api_urls')),
 

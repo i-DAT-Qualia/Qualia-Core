@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %} | {{QUALIA_NAME}}</title>
+
+    <link href="{{STATIC_URL}}bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700,100italic,300italic,400italic,700italic' rel='stylesheet' type='text/css'>
+
+    <style>
+        body { font-family: 'Lato', sans-serif; font-size: 18px;}
+
+        .carousel-control,.carousel-control.left,.carousel-control.right{ background: none;}
+        h1{font: 100 "lato"; text-transform: uppercase; }
+        h2{font: 100 "lato"; text-transform: uppercase; }
+
+
+
+        }
+        /*@media (max-width: 1444px) {*/
+            .navbar-fixed-top img{
+                width: 80px;
+            }
+        /*}*/
+
+
+
+        .navbar-fixed-bottom img {
+            height: 60px;
+        }
+        .navbar-static-bottom img {
+            height: 60px;
+            /*top: 100px;*/
+        }
+         .navbar-static-bottom{
+            margin-bottom: none;
+        }
+
+        #visualization{
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: -10px;
+        }
+        .qualia-options{
+            padding-top: 5px;
+        }
+    </style>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      </head>
+  <body>
+
+
+{% block content %}{% endblock %}
+
+        
+
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script src="{{STATIC_URL}}bootstrap/js/bootstrap.min.js"></script>
+
+    {% block pageScripts %}{% endblock %}
+
+
+  </body>
+</html>

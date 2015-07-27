@@ -17,6 +17,7 @@ INSTALLED_APPS = (
     'provider',
     'provider.oauth2',
     'registration',
+    'front'
 )
 
 AUTH_USER_MODEL = 'accounts.QualiaUser'
@@ -69,7 +70,7 @@ CACHES = {
 }
 
 # Branding settings
-APP_NAME = 'Qualia-Urban'
-QUALIA_NAME = 'Qualia Urban'
-LOGO = 'logos/1.jpg'
-FAVICON = 'icons/artory_favicon.ico'
+APP_NAME = 'Core'
+QUALIA_NAME = 'Core'
+LOGO = 'icons/Icon_128.png'
+FAVICON = 'icons/favicon.ico'
