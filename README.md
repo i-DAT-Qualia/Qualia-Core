@@ -1,5 +1,5 @@
 # Qualia-Core
-![](qualia/front/icons/qualia_logo.png?raw=true)
+![](https://github.com/i-DAT-Qualia/Qualia-Core/blob/master/qualia/front/static/icons/qualia_logo.png?raw=true)
 
 A base Django project and development environment to build Qualia Engines on top of.
 
